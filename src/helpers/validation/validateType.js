@@ -1,1 +1,3 @@
-export const validateType = () => {};
+export const validateType = (value, type) => {
+    return typeof value === type;
+};
