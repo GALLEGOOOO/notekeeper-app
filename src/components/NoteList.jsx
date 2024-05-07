@@ -1,7 +1,6 @@
 // src/components/NoteList.js
 
 import { useState, useEffect } from "react";
-import { getAllNotes } from "../services/notes/api";
 
 const NoteList = () => {
   const [notes, setNotes] = useState([]);
