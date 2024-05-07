@@ -1,12 +1,9 @@
-// src/components/NoteList.js
-
 import { useState, useEffect } from "react";
 
 const NoteList = () => {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
-    // Llama a la función getAllNotes cuando el componente se monta
     getAllNotes()
       .then((data) => setNotes(data.notes))
       .catch((error) => console.error("Error fetching notes:", error));
