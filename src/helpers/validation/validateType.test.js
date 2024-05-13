@@ -1,30 +1,27 @@
+import { validateType } from "./validateType";
+import { describe, test, expect } from "vitest";
 
-import { validateType } from './validateType';
-import { describe } from '@jest/globals';
-import { test } from '@jest/globals';
-import { expect } from '@jest/globals';
-
-describe('validateType function', () => {
-  test('returns true for correct type', () => {
+describe("validateType function", () => {
+  test("returns true for correct type", () => {
     // Arrange
     const value = 123;
-    const type = 'number';
-    
+    const type = "number";
+
     // Act
     const result = validateType(value, type);
-    
+
     // Assert
     expect(result).toBe(true);
   });
 
-  test('returns false for incorrect type', () => {
+  test("returns false for incorrect type", () => {
     // Arrange
-    const value = 'abc';
-    const type = 'number';
-    
+    const value = "abc";
+    const type = "number";
+
     // Act
     const result = validateType(value, type);
-    
+
     // Assert
     expect(result).toBe(false);
   });
