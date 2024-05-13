@@ -5,16 +5,16 @@ Aquest es un fiter on apunto comandes per fer funcionar el codi i pasos previs a
 
 ## Pasos previs al desenvolupament
 
-- Obrir el notekeeper-app en un VS Code
-- Obrir el notekeeper-api en un VS Code
-- Obrir tres terminals en el notekeeper-app en un VS Code
+- Obrir la carpeta `FinalProjectJaume` en un VS Code
+- Obrir quatre terminals en el notekeeper-app en un VS Code
 
 
 Nombrar el terminals amb els noms:
 
 - Terminal 1: `API` ( Aquesta comanda ha de estar aixecada a la ruta on es troba la API )
 - Terminal 2: `APP` ( Aquesta comanda ha de estar aixecada a la ruta on es troba la APP )
-- Terminal 3: `CMD` ( Aquesta comanda ha de estar aixecada a la ruta on es troba la APP )
+- Terminal 3: `TEST` ( Aquesta comanda ha de estar aixecada a la ruta on es troba la APP )
+- Terminal 4: `CMD` ( Aquesta comanda ha de estar aixecada a la ruta on es troba la APP )
 
 ### Comandes a les terminals
 - Terminal 1: Executar la comanda `npm run dev:watch` ( Serveix per aixecar el servidor de JSON )
@@ -27,3 +27,4 @@ Nombrar el terminals amb els noms:
     - L'opció `--check` de Prettier s'utilitza per verificar si el codi compleix les regles de format.
 
     - L'opció `--write` de Prettier s'utilitza per formatar els fitxers segons les regles de format especificades i aplicar els canvis directament als fitxers.
+
