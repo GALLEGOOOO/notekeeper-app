@@ -23,3 +23,7 @@ Nombrar el terminals amb els noms:
 ### Comandes de desenvolupament
 
 - Comanda per executar tests: `npm test`
+- Comanda per executar prettier: npx prettier --write "src/**/*"
+    - L'opció `--check` de Prettier s'utilitza per verificar si el codi compleix les regles de format.
+
+    - L'opció `--write` de Prettier s'utilitza per formatar els fitxers segons les regles de format especificades i aplicar els canvis directament als fitxers.

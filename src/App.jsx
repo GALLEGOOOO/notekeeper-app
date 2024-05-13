@@ -3,7 +3,7 @@ import "./App.css";
 import NoteList from "./components/NoteList";
 
 function App() {
-  const { notes, loading} = useNotes();
+  const { notes, loading } = useNotes();
 
   return (
     <div className="Notes">

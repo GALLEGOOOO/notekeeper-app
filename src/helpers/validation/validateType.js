@@ -7,5 +7,5 @@
  */
 
 export const validateType = (value, type) => {
-    return typeof value === type;
+  return typeof value === type;
 };

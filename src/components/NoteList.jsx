@@ -7,7 +7,7 @@ const NoteList = ({ notes, loading, addNewNote }) => {
       ) : (
         <div>
           <button onClick={addNewNote}>Agregar Nueva Nota</button>
-          <ul style={{fontFamily:"arial"}}>
+          <ul style={{ fontFamily: "arial" }}>
             {notes.map((note) => (
               <li key={note.name}>
                 <h1>{note.name}</h1>

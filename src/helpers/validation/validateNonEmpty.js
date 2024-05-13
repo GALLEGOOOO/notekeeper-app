@@ -6,5 +6,5 @@
  */
 
 export const validateNonEmpty = (value) => {
-    return value.trim() !== '';
+  return value.trim() !== "";
 };
