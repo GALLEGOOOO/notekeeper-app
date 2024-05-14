@@ -23,8 +23,17 @@ Nombrar el terminals amb els noms:
 ### Comandes de desenvolupament
 
 - Comanda per executar tests: `npm test`
-- Comanda per executar prettier: npx prettier --write "src/**/*"
+- Comanda per executar prettier: `npx prettier --write "src/**/*"`
     - L'opció `--check` de Prettier s'utilitza per verificar si el codi compleix les regles de format.
 
     - L'opció `--write` de Prettier s'utilitza per formatar els fitxers segons les regles de format especificades i aplicar els canvis directament als fitxers.
 
+- test fets
+- servicio api conectado
+- components del llsitat de notes i nota unica (NOTA UNICA A COMEÇAR)
+- SERVICES FETS
+- HOOKS FETS i falten metodos
+
+Task List:
+Declarar componente de Nota única que reciba y escupa/renderice la información: Note.jsx
+Montar el form, para enviar la info a la API
