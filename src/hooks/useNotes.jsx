@@ -1,22 +1,26 @@
-import { useState, useEffect } from "react";
-import noteService from "../services/notes/noteService";
-
+import { useEffect, useState } from "react";
+import notesService from "../services/notes/noteService";
 export const useNotes = () => {
   const [notes, setNotes] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const handleNewNotes = (newNotes) => {
-    setNotes(newNotes);
-  };
+const handleNewNotesValue = (newValue) => {
+  setNotes(newValue);
+};
 
-  useEffect(() => {
-    noteService
-      .getAllNotes()
-      .then((data) => {
-        handleNewNotes(data.notes);
-      })
-      .catch((error) => console.error("Error fetching notes:", error))
-      .finally(() => setLoading(false));
+useEffect(() => {
+  notesService
+    .getAllNotes()
+    .then((data) => handleNewNotesValue(data.notes))
+    .catch((error) => console.error('Error al obtener todas las notas:', error))
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
-  return { notes, loading, handleNewNotes };
+
+  return {
+    notes,
+    handleNewNotesValue,
+    loading,
+  };
 };

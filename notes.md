@@ -30,10 +30,9 @@ Nombrar el terminals amb els noms:
 
 - test fets
 - servicio api conectado
-- components del llsitat de notes i nota unica (NOTA UNICA A COMEÇAR)
+- components del notelist i note fets
 - SERVICES FETS
 - HOOKS FETS i falten metodos
 
 Task List:
-Declarar componente de Nota única que reciba y escupa/renderice la información: Note.jsx
 Montar el form, para enviar la info a la API
