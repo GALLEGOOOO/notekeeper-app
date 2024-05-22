@@ -1,24 +1,34 @@
-import { useState, useEffect } from "react";
+import Note from './Note.jsx';
+import NoteForm from './NoteForm.jsx';
+import { useState } from "react";
 
-const NoteList = () => {
-  const [notes, setNotes] = useState([]);
+const NoteList = ({ notes, loading }) => {
+    const [showForm, setShowForm] = useState(false);
 
-  useEffect(() => {
-    getAllNotes()
-      .then((data) => setNotes(data.notes))
-      .catch((error) => console.error("Error fetching notes:", error));
-  }, []);
+    const toggleForm = () => {
+        setShowForm(!showForm);
+    };
 
-  return (
-    <div>
-      <h2>Notes</h2>
-      <ul>
-        {notes.map((note) => (
-          <li key={note.id}>{note.name}</li>
-        ))}
-      </ul>
-    </div>
-  );
+    return (
+        <div>
+            <h2>Notes</h2>
+            {loading ? (
+                <p>Cargando...</p>
+            ) : (
+                <div>
+                    <button onClick={toggleForm}>Agregar Nueva Nota</button>
+                    {showForm && <NoteForm />}
+                    <ul style={{ fontFamily: "arial" }}>
+                        {notes.map((note) => (
+                            <li key={note.id}>
+                                <Note note={note} />
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+        </div>
+    );
 };
 
 export default NoteList;

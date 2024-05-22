@@ -1,13 +1,26 @@
-import { expect } from '@jest/globals';
-import { validateNonEmpty } from './validateNonEmpty';
-import { test } from '@jest/globals';
+import { validateNonEmpty } from "./validateNonEmpty";
+import { describe, test, expect } from "vitest";
 
-test('validateNonEmpty returns true for non-empty value', () => {
-  const value = 'hello';
-  expect(validateNonEmpty(value)).toBe(true);
-});
+describe("validateNonEmpty function", () => {
+  test("returns true for non-empty value", () => {
+    // Arrange
+    const value = "hello";
 
-test('validateNonEmpty returns false for empty value', () => {
-  const value = '';
-  expect(validateNonEmpty(value)).toBe(false);
+    // Act
+    const result = validateNonEmpty(value);
+
+    // Assert
+    expect(result).toBe(true);
+  });
+
+  test("returns false for empty value", () => {
+    // Arrange
+    const value = "";
+
+    // Act
+    const result = validateNonEmpty(value);
+
+    // Assert
+    expect(result).toBe(false);
+  });
 });
