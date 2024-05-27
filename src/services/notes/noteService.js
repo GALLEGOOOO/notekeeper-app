@@ -20,16 +20,35 @@ const getData = async (url, method = 'GET', body = null) => {
 
     return data;
   } catch (error) {
-    console.error("Error al obtener las notas:", error);
+    console.error("Error al carregar les notes:", error);
     throw error;
   }
 };
 
 
-const getAllNotes = async () => {return await getData(baseUrl)};
+const getAllNotes = async () => {
+  return await getData(baseUrl)};
+
+const addNewNoteEntry = async (body) => {
+  await getData(baseUrl, "POST", body);
+};
+const updateNoteEntry = async (id, body) => {
+  const url = `${baseUrl}/${id}`; 
+  await getData(url, "PUT", body);
+};
+
+const deleteNoteEntry = async (id) => {
+  const url = `${baseUrl}/${id}`;
+  await getData(url, "DELETE");
+};
 
 // create crud options for notes
 
 export default {
   getAllNotes,
+  addNewNoteEntry,
+  deleteNoteEntry,
+  updateNoteEntry,
 };
+
+export { notesService } from "./notes/notesService";

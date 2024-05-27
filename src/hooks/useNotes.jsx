@@ -14,7 +14,7 @@ useEffect(() => {
       .getAllNotes()
       .then((data) => handleNewNotesValue(data.notes))
       .catch((error) =>
-        console.error("Error al obtenir todas les notes:", error)
+        console.error("Error al carregar todes les notes:", error)
       )
       .finally(() => {
         setLoading(false);
@@ -70,3 +70,4 @@ return {
   loading,
 };
 };
+
