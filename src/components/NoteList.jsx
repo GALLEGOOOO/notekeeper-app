@@ -16,7 +16,7 @@ const NoteList = ({ notes, loading }) => {
                 <p>Cargando...</p>
             ) : (
                 <div>
-                    <button onClick={toggleForm}>Agregar Nueva Nota</button>
+                    <button onClick={toggleForm}>Crear nota</button>
                     {showForm && <NoteForm />}
                     <ul style={{ fontFamily: "arial" }}>
                         {notes.map((note) => (

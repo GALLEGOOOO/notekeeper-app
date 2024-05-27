@@ -57,6 +57,7 @@ const NoteForm = ({ newName, setNewName, newNumber, setNewNumber, notes, setNote
                         value={newNumber}
                         onChange={(e) => setNewNumber(e.target.value)}
                     />
+                    
                 </div>
                 <br />
                 <br />

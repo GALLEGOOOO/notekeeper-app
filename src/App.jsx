@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="Notes">
       {loading ? (
-        <p>Cargant les notes...</p>
+        <p>Cargando las notas...</p>
       ) : (
         <>
           <NoteList notes={notes} loading={loading} />

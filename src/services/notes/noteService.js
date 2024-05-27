@@ -11,8 +11,11 @@ const getData = async (url, method = 'GET', body = null) => {
 
     const response = await fetch(url, options);
   
-    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);    
-  
+    if (!response.ok) {
+      console.log(`HTTP error! status: ${response.status}`);
+      return null;
+  }
+    
     const data = await response.json();
 
     return data;
@@ -22,7 +25,10 @@ const getData = async (url, method = 'GET', body = null) => {
   }
 };
 
+
 const getAllNotes = async () => {return await getData(baseUrl)};
+
+// create crud options for notes
 
 export default {
   getAllNotes,
