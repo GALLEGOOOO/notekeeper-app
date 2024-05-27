@@ -25,7 +25,6 @@ const getData = async (url, method = 'GET', body = null) => {
   }
 };
 
-
 const getAllNotes = async () => {
   return await getData(baseUrl)};
 
@@ -42,8 +41,6 @@ const deleteNoteEntry = async (id) => {
   await getData(url, "DELETE");
 };
 
-// create crud options for notes
-
 export default {
   getAllNotes,
   addNewNoteEntry,
@@ -51,4 +48,4 @@ export default {
   updateNoteEntry,
 };
 
-export { notesService } from "./notes/notesService";
+export { notesService } from "./note/notesService";
