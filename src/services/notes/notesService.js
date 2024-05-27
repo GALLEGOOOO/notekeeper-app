@@ -1,21 +1,20 @@
 const baseUrl = import.meta.env.VITE_API_BASE_URL;
-console.log("baseUrl: ", baseUrl);
 
-const getData = async (url, method = 'GET', body = null) => {
+const getData = async (url, method = "GET", body = null) => {
   try {
     const options = {
       method,
-      headers: { 'Content-Type': 'application/json', },
+      headers: { "Content-Type": "application/json" },
     };
     if (body) options.body = JSON.stringify(body);
 
     const response = await fetch(url, options);
-  
+
     if (!response.ok) {
       console.log(`HTTP error! status: ${response.status}`);
       return null;
-  }
-    
+    }
+
     const data = await response.json();
 
     return data;
@@ -26,19 +25,24 @@ const getData = async (url, method = 'GET', body = null) => {
 };
 
 const getAllNotes = async () => {
-  return await getData(baseUrl)};
+  return await getData(baseUrl);
+};
 
 const addNewNoteEntry = async (body) => {
-  await getData(baseUrl, "POST", body);
+  const addNote = await getData(baseUrl, "POST", body);
+  return addNote;
 };
+
 const updateNoteEntry = async (id, body) => {
-  const url = `${baseUrl}/${id}`; 
-  await getData(url, "PUT", body);
+  const url = `${baseUrl}/${id}`;
+  const updateNote = await getData(url, "PUT", body);
+  return updateNote;
 };
 
 const deleteNoteEntry = async (id) => {
   const url = `${baseUrl}/${id}`;
-  await getData(url, "DELETE");
+  const delateNote = await getData(url, "DELETE");
+  return delateNote;
 };
 
 export default {
@@ -47,5 +51,3 @@ export default {
   deleteNoteEntry,
   updateNoteEntry,
 };
-
-export { notesService } from "./note/notesService";

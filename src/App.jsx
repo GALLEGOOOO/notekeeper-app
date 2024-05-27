@@ -3,7 +3,7 @@ import "./App.css";
 import NoteList from "./components/NoteList";
 
 function App() {
-  const { notes, loading } = useNotes();
+  const { notes, loading, handleNewNoteEntry } = useNotes();
 
   return (
     <div className="Notes">
@@ -11,7 +11,11 @@ function App() {
         <p>Cargando las notas...</p>
       ) : (
         <>
-          <NoteList notes={notes} loading={loading} />
+          <NoteList
+            notes={notes}
+            loading={loading}
+            handleNewNoteEntry={handleNewNoteEntry}
+          />
         </>
       )}
     </div>

@@ -7,43 +7,30 @@ const NoteForm = ({
   setNewNumber,
   notes,
   setNotes,
+  handleNewNoteEntry,
 }) => {
   const addNewNote = async (event) => {
     event.preventDefault();
-    const noteFound = notes.find((note) => note.name === newName);
+    const { name, description, important, status, dueDate } = event.target;
 
-    if (!noteFound) {
-      const newNote = {
-        id: Date.now(),
-        name: newName,
-        number: newNumber,
-      };
+    const newNote = {
+      name: name.value,
+      description: description.value,
+      important: important.value === "on" ? true : false,
+      status: status.value,
+      dueDate: dueDate.value,
+    };
 
-      try {
-        const data = await noteService.createNote(newNote);
-        setNotes([...notes, data]);
-      } catch (error) {
-        console.error("Error creating note:", error);
-      }
-    } else {
-      if (
-        window.confirm(
-          `${newName} already exists. Do you want to update it with a new number?`
-        )
-      ) {
-        const updatedNote = {
-          ...noteFound,
-          number: newNumber,
-        };
-
-        try {
-          await noteService.updateNote(updatedNote);
-          const updatedNotes = await noteService.getAllNotes();
-          setNotes(updatedNotes);
-        } catch (error) {
-          console.error("Error updating note:", error);
-        }
-      }
+    try {
+      handleNewNoteEntry(newNote)
+        .then((response) => {
+          console.log("response", response);
+        })
+        .catch((error) => {
+          console.log("error", error);
+        });
+    } catch (error) {
+      console.error("Error creating note:", error);
     }
   };
 
@@ -52,20 +39,28 @@ const NoteForm = ({
       <h2>Add a New Note:</h2>
       <form onSubmit={addNewNote}>
         <div>
-          <label htmlFor="new-Name">Name: </label>
-          <input
-            id="new-Name"
-            value={newName}
-            onChange={(e) => setNewName(e.target.value)}
-          />
+          <label htmlFor="name">Name: </label>
+          <input name="name" id="name" type="text" />
           <br />
           <br />
-          <label htmlFor="new-Number">Number: </label>
-          <input
-            id="new-Number"
-            value={newNumber}
-            onChange={(e) => setNewNumber(e.target.value)}
-          />
+          <label htmlFor="description">Description: </label>
+          <input id="description" name="description" type="text" />
+          <br />
+          <br />
+          <label htmlFor="important">Important: </label>
+          <input id="important" name="important" type="checkbox" />
+          <br />
+          <br />
+          <label htmlFor="status">Status: </label>
+          <select id="status" name="status">
+            <option value="done">done</option>
+            <option value="pending">pending</option>
+            <option value="in progress">in progress</option>
+          </select>
+          <br />
+          <br />
+          <label htmlFor="dueDate">Due Date: </label>
+          <input id="dueDate" name="dueDate" type="date" />
         </div>
         <br />
         <br />
