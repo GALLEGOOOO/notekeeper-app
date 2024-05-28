@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Note from "../components/Note";
+import { validateType, validateNonEmpty, validateEnum } from "../helpers/validation";
 
 const NoteForm = ({ handleNewNoteEntry }) => {
   const [formData, setFormData] = useState({
@@ -19,14 +21,25 @@ const NoteForm = ({ handleNewNoteEntry }) => {
 
   const addNewNote = async (e) => {
     e.preventDefault();
-    handleNewNoteEntry(formData);
-    setFormData({
-      name: "",
-      description: "",
-      important: false,
-      status: "pending",
-      dueDate: "",
-    });
+    if (
+      validateType(formData) &&
+      validateNonEmpty(formData) &&
+      validateEnum(formData)
+    ) {
+      try {
+        const data = await Note.create(formData);
+        handleNewNoteEntry([...NoteForm, data]);
+        setFormData({
+          name: "",
+          description: "",
+          important: false,
+          status: "pending",
+          dueDate: "",
+        });
+      } catch (error) {
+        console.error("Error al crear la nota:", error);
+      }
+    }
   };
 
   return (
