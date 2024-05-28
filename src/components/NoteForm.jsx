@@ -1,6 +1,10 @@
 import { useState } from "react";
 import Note from "../components/Note";
-import { validateType, validateNonEmpty, validateEnum } from "../helpers/validation";
+import {
+  validateType,
+  validateNonEmpty,
+  validateEnum,
+} from "../helpers/validation";
 
 const NoteForm = ({ handleNewNoteEntry }) => {
   const [formData, setFormData] = useState({
