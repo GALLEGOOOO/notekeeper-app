@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-const NoteForm = ({ handleNewNoteEntry }) => {
+export const UpdateNoteForm = ({ note, handleUpdateNoteEntry, toggleForm }) => {
   const [formData, setFormData] = useState({
-    name: "",
-    description: "",
-    important: false,
-    status: "pending",
-    dueDate: "",
+    name: note.name || "",
+    description: note.description || "",
+    important: note.important || false,
+    status: note.status || "pending",
+    dueDate: note.dueDate || "",
   });
 
   const handleChange = (e) => {
@@ -17,25 +17,18 @@ const NoteForm = ({ handleNewNoteEntry }) => {
     });
   };
 
-  const addNewNote = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    handleNewNoteEntry(formData);
-    // Limpiar el formulario después de agregar la nota
-    setFormData({
-      name: "",
-      description: "",
-      important: false,
-      status: "pending",
-      dueDate: "",
-    });
+    handleUpdateNoteEntry(note.id, formData);
+    toggleForm(); // Close the form after submitting
   };
 
   return (
     <div>
-      <h2>Afegir una nova nota</h2>
-      <form onSubmit={addNewNote}>
+      <h2>Update Note:</h2>
+      <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="name">Nom: </label>
+          <label htmlFor="name">Name: </label>
           <input
             name="name"
             id="name"
@@ -45,7 +38,7 @@ const NoteForm = ({ handleNewNoteEntry }) => {
           />
           <br />
           <br />
-          <label htmlFor="description">Descripció: </label>
+          <label htmlFor="description">Description: </label>
           <input
             id="description"
             name="description"
@@ -55,7 +48,7 @@ const NoteForm = ({ handleNewNoteEntry }) => {
           />
           <br />
           <br />
-          <label htmlFor="important">Important </label>
+          <label htmlFor="important">Important: </label>
           <input
             id="important"
             name="important"
@@ -65,20 +58,20 @@ const NoteForm = ({ handleNewNoteEntry }) => {
           />
           <br />
           <br />
-          <label htmlFor="status">Estat: </label>
+          <label htmlFor="status">Status: </label>
           <select
             id="status"
             name="status"
             value={formData.status}
             onChange={handleChange}
           >
-            <option value="done">Feta</option>
-            <option value="pending">Pendent</option>
-            <option value="in progress">En Progress</option>
+            <option value="done">done</option>
+            <option value="pending">pending</option>
+            <option value="in progress">in progress</option>
           </select>
           <br />
           <br />
-          <label htmlFor="dueDate">Data de venciment: </label>
+          <label htmlFor="dueDate">Due Date: </label>
           <input
             id="dueDate"
             name="dueDate"
@@ -90,11 +83,9 @@ const NoteForm = ({ handleNewNoteEntry }) => {
         <br />
         <br />
         <div>
-          <button type="submit">Afegir</button>
+          <button type="submit">Update</button>
         </div>
       </form>
     </div>
   );
 };
-
-export default NoteForm;

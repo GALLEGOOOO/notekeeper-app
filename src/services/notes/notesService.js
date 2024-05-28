@@ -1,6 +1,6 @@
 const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
-const getData = async (url, method = "GET", body = null) => {
+const getData = async (url, method, body) => {
   try {
     const options = {
       method,
@@ -25,7 +25,7 @@ const getData = async (url, method = "GET", body = null) => {
 };
 
 const getAllNotes = async () => {
-  return await getData(baseUrl);
+  return await getData(baseUrl, "GET", null);
 };
 
 const addNewNoteEntry = async (body) => {
@@ -41,13 +41,13 @@ const updateNoteEntry = async (id, body) => {
 
 const deleteNoteEntry = async (id) => {
   const url = `${baseUrl}/${id}`;
-  const delateNote = await getData(url, "DELETE");
+  const delateNote = await getData(url, "DELETE", null);
   return delateNote;
 };
 
 export default {
-  getAllNotes,
-  addNewNoteEntry,
-  deleteNoteEntry,
-  updateNoteEntry,
+  getAllNotes: getAllNotes,
+  addNewNoteEntry: addNewNoteEntry,
+  deleteNoteEntry: deleteNoteEntry,
+  updateNoteEntry: updateNoteEntry,
 };

@@ -1,9 +1,16 @@
 import { useNotes } from "./hooks/useNotes";
 import "./App.css";
 import NoteList from "./components/NoteList";
+import "./NoteList.module.css";
 
 function App() {
-  const { notes, loading, handleNewNoteEntry } = useNotes();
+  const {
+    notes,
+    loading,
+    handleNewNoteEntry,
+    handleDeleteNoteEntry,
+    handleUpdateNoteEntry,
+  } = useNotes();
 
   return (
     <div className="Notes">
@@ -15,6 +22,8 @@ function App() {
             notes={notes}
             loading={loading}
             handleNewNoteEntry={handleNewNoteEntry}
+            handleDeleteEntry={handleDeleteNoteEntry}
+            handleUpdateNoteEntry={handleUpdateNoteEntry}
           />
         </>
       )}
