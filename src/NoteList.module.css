@@ -1,18 +1,17 @@
 /* NoteList.module.css */
 header {
-    color: blue;
-  }
-  
-  list {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  item {
-    margin-bottom: 10px;
-  }
-  
-  button {
-    margin-right: 5px;
-  }
-  
+  color: blue;
+}
+
+list {
+  list-style-type: none;
+  padding: 0;
+}
+
+item {
+  margin-bottom: 10px;
+}
+
+button {
+  margin-right: 5px;
+}
