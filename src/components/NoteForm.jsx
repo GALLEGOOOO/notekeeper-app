@@ -20,7 +20,6 @@ const NoteForm = ({ handleNewNoteEntry }) => {
   const addNewNote = async (e) => {
     e.preventDefault();
     handleNewNoteEntry(formData);
-    // Limpiar el formulario después de agregar la nota
     setFormData({
       name: "",
       description: "",
@@ -42,6 +41,7 @@ const NoteForm = ({ handleNewNoteEntry }) => {
             type="text"
             value={formData.name}
             onChange={handleChange}
+            required
           />
           <br />
           <br />
@@ -52,6 +52,7 @@ const NoteForm = ({ handleNewNoteEntry }) => {
             type="text"
             value={formData.description}
             onChange={handleChange}
+            required
           />
           <br />
           <br />
@@ -71,6 +72,7 @@ const NoteForm = ({ handleNewNoteEntry }) => {
             name="status"
             value={formData.status}
             onChange={handleChange}
+            required
           >
             <option value="done">Feta</option>
             <option value="pending">Pendent</option>
@@ -85,6 +87,7 @@ const NoteForm = ({ handleNewNoteEntry }) => {
             type="date"
             value={formData.dueDate}
             onChange={handleChange}
+            required
           />
         </div>
         <br />
