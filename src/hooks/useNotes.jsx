@@ -14,7 +14,7 @@ export const useNotes = () => {
         .getAllNotes()
         .then((data) => handleNewNotesValue(data.notes))
         .catch((error) =>
-          console.error("Error al carregar todes les notes:", error)
+          console.error("Error al carregar todes les notes:", error),
         )
         .finally(() => {
           setLoading(false);
