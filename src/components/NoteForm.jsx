@@ -19,28 +19,30 @@ const NoteForm = ({ handleNewNoteEntry }) => {
 
   const addNewNote = (e) => {
     e.preventDefault();
-     
-      try {
-        let options = {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit',
-          second: '2-digit'
-        };
-        const newNote = {
-          name: e.target.name.value,
-          description: e.target.description.value,
-          important: e.target.important.value,
-          status: e.target.status.value,
-          dueDate: new Date(e.target.dueDate.value).toLocaleString(undefined, options),
-        };
-        handleNewNoteEntry(newNote);
-      } catch (error) {
-        console.error("Error al crear la nota:", error);
-      }
-    
+
+    try {
+      let options = {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      };
+      const newNote = {
+        name: e.target.name.value,
+        description: e.target.description.value,
+        important: e.target.important.value,
+        status: e.target.status.value,
+        dueDate: new Date(e.target.dueDate.value).toLocaleString(
+          undefined,
+          options,
+        ),
+      };
+      handleNewNoteEntry(newNote);
+    } catch (error) {
+      console.error("Error al crear la nota:", error);
+    }
   };
 
   return (
